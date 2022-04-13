@@ -15,6 +15,16 @@ class CidadeController {
       return res.status(400).json(error.message);
     }
   }
+
+  async findAll(req: Request, res: Response): Promise<Response> {
+    try {
+      const payload = req.query;
+      const result = await cidadeService.findAll(payload);
+      return res.status(200).json(result);
+    } catch (error) {
+      return res.status(400).json(error.message);
+    }
+  }
 }
 
 export default CidadeController;

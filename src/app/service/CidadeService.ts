@@ -9,6 +9,11 @@ class CidadeService {
     const result = await cidadeRepository.create({ nome, estado });
     return result;
   }
+
+  async findAll(payload): Promise<Cidade | Cidade[]> {
+    const result = await cidadeRepository.findAll(payload);
+    return result;
+  }
 }
 
 export default CidadeService;
