@@ -1,0 +1,16 @@
+version: '3'
+
+networks:
+  fastTrack:
+    driver: bridge
+
+services:
+  db:
+    image: postgres
+    networks:
+      - fastTrack
+    environment:
+      POSTGRES_PASSWORD: "postgres"
+      POSTGRES_USER: "postgres"
+    ports:
+      - "5432:5432"
