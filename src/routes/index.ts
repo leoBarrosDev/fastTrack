@@ -10,6 +10,8 @@ const clienteController = new ClienteController();
 router
   .post('/cidades', cidadeController.create)
   .post('/clientes', clienteController.create)
-  .delete('/clientes/:id', clienteController.delete);
+  .delete('/clientes/:id', clienteController.delete)
+  .put('/clientes/:id', clienteController.update)
+  .get('/clientes/:id', clienteController.findById);
 
 export { router };

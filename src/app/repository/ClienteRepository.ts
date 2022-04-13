@@ -30,6 +30,20 @@ class ClienteRepository {
 
     return destroy;
   }
+
+  async update(id: string, payload: clienteRequest): Promise<UpdateResult> {
+    const repository = getRepository(Cliente);
+    const newClient = await repository.update(id, payload);
+
+    return newClient;
+  }
+
+  async findById(id: string): Promise<Cliente> {
+    const repository = getRepository(Cliente);
+    const cliente = await repository.findOne(id);
+
+    return cliente;
+  }
 }
 
 export default ClienteRepository;
