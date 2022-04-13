@@ -9,6 +9,7 @@ const clienteController = new ClienteController();
 
 router
   .post('/cidades', cidadeController.create)
-  .post('/clientes', clienteController.create);
+  .post('/clientes', clienteController.create)
+  .delete('/clientes/:id', clienteController.delete);
 
 export { router };

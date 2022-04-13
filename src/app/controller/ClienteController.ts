@@ -27,6 +27,17 @@ class ClienteController {
       return res.status(400).json(error);
     }
   }
+
+  async delete(req: Request, res: Response): Promise<Response> {
+    try {
+      const { id } = req.params;
+      const result = await clienteService.delete(id);
+
+      return res.status(204).json(result);
+    } catch (error) {
+      return res.status(400).json(error);
+    }
+  }
 }
 
 export default ClienteController;

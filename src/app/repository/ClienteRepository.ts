@@ -23,6 +23,13 @@ class ClienteRepository {
     await repository.save(cliente);
     return cliente;
   }
+
+  async delete(id: string): Promise<DeleteResult> {
+    const repository = getRepository(Cliente);
+    const destroy = await repository.delete(id);
+
+    return destroy;
+  }
 }
 
 export default ClienteRepository;

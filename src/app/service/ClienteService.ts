@@ -1,4 +1,4 @@
-import { UpdateResult, DeleteResult } from 'typeorm';
+import { UpdateResult, DeleteResult, getRepository } from 'typeorm';
 import Cliente from '../entities/Cliente';
 
 import { clienteRequest } from '../@type/clienteRequest';
@@ -23,6 +23,12 @@ class ClienteService {
     });
 
     return cliente;
+  }
+
+  async delete(id: string): Promise<DeleteResult> {
+    const destroy = await clienteRepository.delete(id);
+
+    return destroy;
   }
 }
 
