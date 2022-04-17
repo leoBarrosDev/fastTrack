@@ -31,10 +31,10 @@ class ClienteRepository {
     return destroy;
   }
 
-  async update(id: string, payload: clienteRequest): Promise<UpdateResult> {
+  async update(id: string, payload: clienteRequest): Promise<Cliente> {
     const repository = getRepository(Cliente);
-    const newClient = await repository.update(id, payload);
-
+    await repository.update(id, payload);
+    const newClient = repository.findOne(id);
     return newClient;
   }
 
@@ -43,6 +43,12 @@ class ClienteRepository {
     const cliente = await repository.findOne(id);
 
     return cliente;
+  }
+
+  async findAll(payload: any): Promise<Cliente|Cliente[]> {
+    const repository = getRepository(Cliente);
+    const clientes = await repository.find(payload);
+    return clientes;
   }
 }
 

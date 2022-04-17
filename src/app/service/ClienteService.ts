@@ -31,7 +31,7 @@ class ClienteService {
     return destroy;
   }
 
-  async update(id: string, payload: clienteRequest): Promise<UpdateResult> {
+  async update(id: string, payload: clienteRequest): Promise<Cliente> {
     const newClient = await clienteRepository.update(id, payload);
 
     return newClient;
@@ -41,6 +41,11 @@ class ClienteService {
     const cliente = await clienteRepository.findById(id);
 
     return cliente;
+  }
+
+  async findAll(payload): Promise<Cliente | Cliente[]> {
+    const result = await clienteRepository.findAll(payload);
+    return result;
   }
 }
 

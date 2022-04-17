@@ -18,13 +18,6 @@ class CidadeRepository {
 
     return cidades;
   }
-
-  // async findByName(name: string): Promise<Cidade> {
-  //   const repository = getRepository(Cidade);
-  //   const cidade = await repository.findOne({ where: { nome: name } });
-
-  //   return cidade;
-  // }
 }
 
 export default CidadeRepository;
