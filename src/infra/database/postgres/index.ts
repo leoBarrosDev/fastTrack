@@ -7,7 +7,7 @@ class Postgres {
 
   async databaseConnection(): Promise <void> {
     await createConnection().then(() => {
-      console.log('Conectado com sucesso');
+      // console.log('Conectado com sucesso');
     });
   }
 }
